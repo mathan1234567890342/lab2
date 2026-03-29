@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hii copy your code</title><style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.code-box {
+    position: relative;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.code-box:hover {
+    transform: scale(1.02);
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #38bdf8;
+    border: none;
+    padding: 6px 12px;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+    color: white;
+}
+</style></head><body><h1>💻 Code Copy Website</h1><div class="container"><!-- Python Code -->
+<div class="code-box">
+    <button onclick="copyCode(this)">Copy</button>
+    <pre>
+
+import sys
+
+class MaxHeap:
+    def __init__(self, maxsize):
+        self.maxsize = maxsize
+        self.size = 0
+        self.Heap = [0] * (self.maxsize + 1)
+        self.Heap[0] = sys.maxsize
+        self.FRONT = 1
+
+    def parent(self, pos):
+        return pos // 2
+
+    def leftChild(self, pos):
+        return 2 * pos
+
+    def rightChild(self, pos):
+        return (2 * pos) + 1
+
+    def isLeaf(self, pos):
+        return pos >= (self.size // 2) and pos <= self.size
+
+    def swap(self, fpos, spos):
+        self.Heap[fpos], self.Heap[spos] = self.Heap[spos], self.Heap[fpos]
+
+    def maxHeapify(self, pos):
+        if not self.isLeaf(pos):
+            left = self.leftChild(pos)
+            right = self.rightChild(pos)
+            largest = pos
+
+            if left <= self.size and self.Heap[left] > self.Heap[largest]:
+                largest = left
+
+            if right <= self.size and self.Heap[right] > self.Heap[largest]:
+                largest = right
+
+            if largest != pos:
+                self.swap(pos, largest)
+                self.maxHeapify(largest)
+
+    def insertNode(self, element):
+        if self.size >= self.maxsize:
+            return
+
+        self.size += 1
+        self.Heap[self.size] = element
+
+        current = self.size
+        while current > 1 and self.Heap[current] > self.Heap[self.parent(current)]:
+            self.swap(current, self.parent(current))
+            current = self.parent(current)
+
+    def Print(self):
+        for i in range(1, (self.size // 2) + 1):
+            left = self.leftChild(i)
+            right = self.rightChild(i)
+
+            left_val = self.Heap[left] if left <= self.size else None
+            right_val = self.Heap[right] if right <= self.size else None
+
+            print("PARENT NODE :", self.Heap[i],
+                  "LEFT CHILD :", left_val,
+                  "RIGHT CHILD :", right_val)
+
+    def extractMaximum(self):
+        if self.size == 0:
+            return None
+
+        popped = self.Heap[self.FRONT]
+        self.Heap[self.FRONT] = self.Heap[self.size]
+        self.size -= 1
+
+        if self.size > 0:
+            self.maxHeapify(self.FRONT)
+
+        return popped
+
+
+if __name__ == "__main__":
+    maxHeap = MaxHeap(15)
+
+    maxHeap.insertNode(5)
+    maxHeap.insertNode(9)
+    maxHeap.insertNode(1)
+    maxHeap.insertNode(11)
+    maxHeap.insertNode(28)
+    maxHeap.insertNode(19)
+    maxHeap.insertNode(7)
+    maxHeap.insertNode(2)
+    maxHeap.insertNode(8)
+
+    maxHeap.Print()
+
+    print("The Max value of Max Heap is:", maxHeap.extractMaximum())
+
+<!-- HTML Code -->
+
+</pre>
+</div>
+
+</div><script>
+function copyCode(btn) {
+    let code = btn.nextElementSibling.innerText;
+
+    navigator.clipboard.writeText(code);
+
+    btn.innerText = "Copied ✅";
+
+    setTimeout(() => {
+        btn.innerText = "Copy";
+    }, 2000);
+}
+</script></body>
+</html>

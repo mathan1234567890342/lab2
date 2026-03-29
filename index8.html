@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hii copy your code</title><style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.code-box {
+    position: relative;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.code-box:hover {
+    transform: scale(1.02);
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #38bdf8;
+    border: none;
+    padding: 6px 12px;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+    color: white;
+}
+</style></head><body><h1>💻 Code Copy Website</h1><div class="container"><!-- Python Code -->
+<div class="code-box">
+    <button onclick="copyCode(this)">Copy</button>
+    <pre>
+
+def partition(array, low, high):
+ pivot = array[high]
+ i = low - 1
+ for j in range(low, high):
+ if array[j] <= pivot:
+ i = i + 1
+ array[i], array[j] = array[j], array[i]
+ array[i + 1], array[high] = array[high], array[i + 1]
+ return i + 1
+def quickSort(array, low, high):
+ if low < high:
+ pi = partition(array, low, high)
+ quickSort(array, low, pi - 1)
+ quickSort(array, pi + 1, high)
+data = [1, 7, 4, 1, 10, 9, -2]
+print("Unsorted Array:")
+print(data)
+size = len(data)
+quickSort(data, 0, size - 1)
+print("Sorted Array in Ascending Order:")
+print(data)
+
+<!-- HTML Code -->
+
+</pre>
+</div>
+
+</div><script>
+function copyCode(btn) {
+    let code = btn.nextElementSibling.innerText;
+
+    navigator.clipboard.writeText(code);
+
+    btn.innerText = "Copied ✅";
+
+    setTimeout(() => {
+        btn.innerText = "Copy";
+    }, 2000);
+}
+</script></body>
+</html>

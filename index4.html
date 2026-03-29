@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hii copy your code</title><style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.code-box {
+    position: relative;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.code-box:hover {
+    transform: scale(1.02);
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #38bdf8;
+    border: none;
+    padding: 6px 12px;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+    color: white;
+}
+</style></head><body><h1>💻 Code Copy Website</h1><div class="container"><!-- Python Code -->
+<div class="code-box">
+    <button onclick="copyCode(this)">Copy</button>
+    <pre>
+
+queue = []
+
+def Enqueue():
+    element = input("Enter the element: ")
+    queue.append(element)
+    print(element, "is added to queue!")
+
+def Dequeue():
+    if not queue:
+        print("Queue is empty!")
+    else:
+        e = queue.pop(0)
+        print("Removed element:", e)
+
+def size():
+    print("Size of queue:", len(queue))
+
+def display():
+    print("Queue elements:", queue)
+
+def front():
+    if not queue:
+        print("Queue is empty!")
+    else:
+        print("Front element:", queue[0])
+
+while True:
+    print("\nSelect the operation")
+    print("1. Add (Enqueue)")
+    print("2. Remove (Dequeue)")
+    print("3. Size")
+    print("4. Show")
+    print("5. Front")
+    print("6. Quit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        Enqueue()
+    elif choice == 2:
+        Dequeue()
+    elif choice == 3:
+        size()
+    elif choice == 4:
+        display()
+    elif choice == 5:
+        front()
+    elif choice == 6:
+        print("Program exited")
+        break
+    else:
+        print("Enter correct operation!")
+
+<!-- HTML Code -->
+
+</pre>
+</div>
+
+</div><script>
+function copyCode(btn) {
+    let code = btn.nextElementSibling.innerText;
+
+    navigator.clipboard.writeText(code);
+
+    btn.innerText = "Copied ✅";
+
+    setTimeout(() => {
+        btn.innerText = "Copy";
+    }, 2000);
+}
+</script></body>
+</html>

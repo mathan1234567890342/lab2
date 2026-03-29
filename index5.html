@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hii copy your code</title><style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.code-box {
+    position: relative;
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.code-box:hover {
+    transform: scale(1.02);
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #38bdf8;
+    border: none;
+    padding: 6px 12px;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0ea5e9;
+    color: white;
+}
+</style></head><body><h1>💻 Code Copy Website</h1><div class="container"><!-- Python Code -->
+<div class="code-box">
+    <button onclick="copyCode(this)">Copy</button>
+    <pre>
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+
+class DLL:
+    def __init__(self):
+        self.head = None
+
+    def display(self):
+        if self.head is None:
+            print("Empty doubly linked list")
+        else:
+            temp = self.head
+            while temp:
+                print(temp.data, end=" <-> ")
+                temp = temp.next
+            print("None")
+
+
+# Creating nodes
+L = DLL()
+
+n1 = Node(10)
+L.head = n1
+
+n2 = Node(20)
+n1.next = n2
+n2.prev = n1
+
+n3 = Node(30)
+n2.next = n3
+n3.prev = n2
+
+# Display list
+L.display()
+
+<!-- HTML Code -->
+
+</pre>
+</div>
+
+</div><script>
+function copyCode(btn) {
+    let code = btn.nextElementSibling.innerText;
+
+    navigator.clipboard.writeText(code);
+
+    btn.innerText = "Copied ✅";
+
+    setTimeout(() => {
+        btn.innerText = "Copy";
+    }, 2000);
+}
+</script></body>
+</html>

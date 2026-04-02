@@ -1,122 +1,13 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hii copy your code</title><style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0f172a;
-    color: white;
-    padding: 20px;
-}
+    <title>PDF View</title>
+</head>
+<body>
 
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-}
+<h2>My PDF File</h2>
 
-.container {
-    max-width: 900px;
-    margin: auto;
-}
+<embed src="iot.pdf" width="600" height="500" type="application/pdf">
 
-.code-box {
-    position: relative;
-    background: #1e293b;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    transition: 0.3s;
-}
-
-.code-box:hover {
-    transform: scale(1.02);
-}
-
-pre {
-    margin: 0;
-    overflow-x: auto;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #38bdf8;
-    border: none;
-    padding: 6px 12px;
-    color: black;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #0ea5e9;
-    color: white;
-}
-</style></head><body><h1>💻 Code Copy Website</h1><div class="container"><!-- Python Code -->
-<div class="code-box">
-    <button onclick="copyCode(this)">Copy</button>
-    <pre>
-
-class Node:
-def __init__(self, key):
-self.left = None
-self.right = None
-self.val = key
-def printPreorder(root):
-if root:
-print(root.val, end=' ')
-printPreorder(root.left)
-printPreorder(root.right)
-def printInorder(root):
-if root:
-printInorder(root.left)
-print(root.val, end=' ')
-printInorder(root.right)
-def printPostorder(root):
-if root:
-printPostorder(root.left)
-printPostorder(root.right)
-print(root.val, end=' ')
-# Tree creation
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
-print("Preorder traversal of binary
-tree is")
-printPreorder(root)
-print("\nInorder traversal of
-binary tree is")
-printInorder(root)
-print("\nPostorder traversal of
-binary tree is")
-printPostorder(root)
-
-<!-- HTML Code -->
-
-</pre>
-</div>
-
-</div><script>
-function copyCode(btn) {
-    let code = btn.nextElementSibling.innerText;
-
-    navigator.clipboard.writeText(code);
-
-    btn.innerText = "Copied ✅";
-
-    setTimeout(() => {
-        btn.innerText = "Copy";
-    }, 2000);
-}
-</script></body>
+</body>
 </html>

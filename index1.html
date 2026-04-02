@@ -65,19 +65,32 @@ button:hover {
     <button onclick="copyCode(this)">Copy</button>
     <pre>
 
-def linear_search(list1,n,key):
- for i in range(0,n):
- if(list1[i]==key):
- return i
- return-1
-list1=[1,2,3,4,7,9]
-key=9
-n=len(list1)
-res=linear_search(list1,n,key)
-if(res==-1):
- print("element not found")
-else:
- print("element found at index:",res)
+int pbuttonPin = 2;
+int relayPin = 10;
+int val = 0;
+int prevState = 0; // To store the previous state of the button
+int pushed = 0;
+void setup() {
+ pinMode(pbuttonPin, INPUT_PULLUP); // Internal pull-up resistor
+ pinMode(relayPin, OUTPUT); // Set relay pin as output
+ digitalWrite(relayPin, HIGH); // Turn relay off initially
+}
+void loop() {
+ val = digitalRead(pbuttonPin); // Read the button state
+ // Detect a button press event (transition from LOW to HIGH)
+ if (val == LOW && prevState == HIGH) {
+ pushed = 1 - pushed; // Toggle the pushed variable
+ delay(100); // Debouncing delay
+ }
+
+ prevState = val; // Update the previous state
+ // Control the relay based on the pushed state
+ if (pushed == 1) {
+ digitalWrite(relayPin, LOW); // Turn the relay on
+ } else {
+ digitalWrite(relayPin, HIGH); // Turn the relay off
+ }
+}
 
 <!-- HTML Code -->
 

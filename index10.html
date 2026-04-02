@@ -65,36 +65,45 @@ button:hover {
     <button onclick="copyCode(this)">Copy</button>
     <pre>
 
-INF = 9999999
-V = 5
-G = [
- [0, 9, 75, 0, 0],
- [9, 0, 95, 19, 42],
- [75, 95, 0, 51, 66],
- [0, 19, 51, 0, 31],
- [0, 42, 66, 31, 0]
-]
-selected = [False] * V # Track selected vertices
-no_edge = 0
-selected[0] = True
-print("Edge : Weight\n")
-while no_edge < V - 1:
- minimum = INF
- x = 0
- y = 0
- for i in range(V):
- if selected[i]:
- for j in range(V):
- if (not selected[j]) and G[i][j] != 0:
- if minimum > G[i][j]:
- minimum = G[i][j]
- x = i
- y = j
- print(f"{x}-{y}: {G[x][y]}")
- selected[y] = True
- no_edge += 1
 
-<!-- HTML Code -->
+ #include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+int pulsePin = A0;
+int threshold = 550;
+int signalValue;
+unsigned long lastBeatTime = 0;
+unsigned long currentTime;
+int BPM = 0;
+void setup()
+{
+ lcd.init();
+ lcd.backlight();
+ lcd.setCursor(0,0);
+ lcd.print("Heartbeat Monitor");
+ delay(2000);
+ lcd.clear();
+}
+void loop()
+{
+ signalValue = analogRead(pulsePin);
+ currentTime = millis();
+ if(signalValue > threshold)
+ {
+Reg.No:20925P08001 Master of Computer Application
+Pg.No: 37 Shanmuga Industries Arts & Science College
+ if(currentTime - lastBeatTime > 300)
+ {
+ BPM = 60000 / (currentTime - lastBeatTime);
+ lastBeatTime = currentTime;
+ lcd.clear();
+ lcd.setCursor(0,0);
+ lcd.print("Heart Rate:");
+ lcd.setCursor(0,1);
+ lcd.print(BPM);
+ lcd.print(" BPM");
+ }
+
 
 </pre>
 </div>
